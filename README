@@ -1,0 +1,29 @@
+Summary
+
+	qwik and dirty py to read from env sensors & generate a web-accessible CSV
+
+Setup
+	Install libraries
+		https://github.com/pimoroni/enviroplus-python
+		https://github.com/pimoroni/pms5003-python
+
+Service
+I've wrapped the bash as a systemd service: aerprotek.ems
+	from https://unix.stackexchange.com/questions/426862/proper-way-to-run-shell-script-as-a-daemon
+
+# edit bin/aerprotek.ems so that the /path/to/ems.py matches where you've put it
+#
+# change the output file target for your needs.
+#
+# cp bin/aerprotek.ems /usr/bin/aerprotek.ems
+# 
+# cp bin/ems.service /etc/systemd/system/
+# 
+# systemctl start ems.service
+# systemctl enable ems.service
+
+this should provide for automatic system level monitoring & restart.
+useful link https://www.freedesktop.org/software/systemd/man/systemd.service.html
+
+Things to TEST
+	- python try/catch on env-reading library

@@ -1,0 +1,9 @@
+[Unit]
+Description=Aerprotek Environmental Monitoring Software
+
+[Service]
+ExecStart=/usr/bin/aerprotek.ems
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
